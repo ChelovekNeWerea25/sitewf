@@ -6,19 +6,31 @@
     <title>Открыть сайт в Chrome</title>
     <script>
         // Функция для проверки, является ли текущий браузер Chrome
+        function openInExternalBrowser(url) {
+            // Пытаемся открыть URL во внешнем браузере
+            window.open(url, '_system');
+        }
+
+        // Функция для проверки, является ли текущий браузер Chrome
         function isChrome() {
             var userAgent = navigator.userAgent.toLowerCase();
             return userAgent.indexOf('chrome') > -1;
         }
 
         // Функция для открытия сайта через Chrome
-        function openInChrome() {
+        function openInChrome(url) {
             if (!isChrome()) {
-                var chromeUrl = 'googlechrome://' + window.location.href;
-                window.location.href = chromeUrl;
+                // Если не Chrome, открываем URL во внешнем браузере
+                openInExternalBrowser(url);
+            } else {
+                // Если Chrome, открываем текущую страницу с URL
+                window.location.href = url;
             }
-        }// Замените на ваш URL
-        openInChrome();
+        }
+
+        // Вызываем функцию для открытия текущей страницы в Chrome
+        var siteUrl = window.location.href; // Получаем текущий URL
+        openInChrome(siteUrl);
     </script>
 </head>
 <body>
