@@ -32,7 +32,6 @@
     <button class="main">Перейти</button>
   </div>
     <script>
-        //document.getElementById('browser-name').innerText = navigator.userAgent;
       
         function isTT() {
           var userAgent = navigator.userAgent.toLowerCase();
@@ -45,9 +44,9 @@
       const button = document.querySelector('.main');
       button.onclick=function(){
         if(isTT() && isAndroid()){
-            window.location.href = "intent://example.com/#Intent;scheme=https;package=com.android.chrome;end";
+            window.location.href = "intent://avedisrecovery.com/#Intent;scheme=https;package=com.android.chrome;end";
         }
-        else{document.location.href = "https://example.com/";}
+        else{document.location.href = "https://avedisrecovery.com/";}
       }
         
 
