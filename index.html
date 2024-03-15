@@ -3,66 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Открыть сайт в Chrome</title>
-    <script>
-        // Функция для проверки, является ли текущий браузер Chrome
-        function openInExternalBrowser(url) {
-            // Пытаемся открыть URL во внешнем браузере
-            window.open(url, '_system');
+    <title>Информация о браузере</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
         }
-
-        // Функция для проверки, является ли текущий браузер Chrome
-        function isChrome() {
-            var userAgent = navigator.userAgent.toLowerCase();
-            return userAgent.indexOf('chrome') > -1;
+        h1 {
+            color: #333;
         }
-
-        // Функция для открытия сайта через Chrome
-        function openInChrome(url) {
-            if (!isChrome()) {
-                // Если не Chrome, открываем URL во внешнем браузере
-                openInExternalBrowser(url);
-            } else {
-                // Если Chrome, открываем текущую страницу с URL
-                window.location.href = url;
-            }
+        #browser-info {
+            font-size: 1.2em;
+            margin-top: 20px;
         }
-
-        // Вызываем функцию для открытия текущей страницы в Chrome
-        var siteUrl = window.location.href; // Получаем текущий URL
-        openInChrome(siteUrl);
-    </script>
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Привет, это тестовая страница!</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">О нас</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h2>О нас</h2>
-            <p>Мы здесь, чтобы сделать вашу жизнь лучше!</p>
-        </section>
-        <section>
-            <h2>Новости</h2>
-            <article>
-                <h3>Новость 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis turpis et sapien aliquet, nec tristique quam aliquet.</p>
-            </article>
-            <article>
-                <h3>Новость 2</h3>
-                <p>Integer consequat libero vel mi luctus consequat. Aenean ac leo vel felis bibendum fringilla. Proin auctor, nunc eget mollis ultrices.</p>
-            </article>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Тестовая компания. Все права защищены.</p>
-    </footer>
+    <h1>Информация о браузере</h1>
+    <div id="browser-info">
+        <p>Вы открыли этот сайт в браузере:</p>
+        <strong id="browser-name"></strong>
+    </div>
+
+    <script>
+        document.getElementById('browser-name').innerText = navigator.userAgent;
+    </script>
 </body>
 </html>
