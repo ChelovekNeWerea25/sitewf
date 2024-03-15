@@ -12,18 +12,13 @@
         }
 
         // Функция для открытия сайта через Chrome
-        function openInChrome(url) {
+        function openInChrome() {
             if (!isChrome()) {
-                var chromeUrl = 'googlechrome://' + url;
+                var chromeUrl = 'googlechrome://' + window.location.href;
                 window.location.href = chromeUrl;
-            } else {
-                window.location.href = url;
             }
-        }
-
-        // Вызываем функцию для открытия сайта в Chrome
-        var siteUrl = 'https://example.com'; // Замените на ваш URL
-        openInChrome(siteUrl);
+        }// Замените на ваш URL
+        openInChrome();
     </script>
 </head>
 <body>
