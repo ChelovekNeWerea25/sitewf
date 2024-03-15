@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Информация о браузере</title>
+    <title>Тик ток проверка</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 0; 
+        }
         .main {
-  font-size: 23px;
-  color: #ffffff !important;
-  padding: 18px 25px;
-  border-radius: 5px;
-  border: 0px hidden #f3c846;
-  background: #ff6767;
-  margin: 0 auto;
-  display: block;
-}
-.main:hover {
-  color: #cccccc !important;
-  background: #f66d52;
-}
-div {
-  text-align: center;
-}
+            font-size: 23px;
+            color: #ffffff !important;
+            padding: 18px 25px;
+            border-radius: 5px;
+            border: 0px hidden #f3c846;
+            background: #ff6767;
+            display: block;
+        }
+        .main:hover {
+            color: #cccccc !important;
+            background: #f66d52;
+        }
     </style>
 </head>
 <body>
@@ -35,9 +38,13 @@ div {
           var userAgent = navigator.userAgent.toLowerCase();
           return userAgent.indexOf('musical_ly') > -1;
         }
+        function isAndroid() {
+          var userAgent = navigator.userAgent.toLowerCase();
+          return userAgent.indexOf('android') > -1;
+        }
       const button = document.querySelector('.main');
       button.onclick=function(){
-        if(isTT()){
+        if(isTT() && isAndroid()){
             window.location.href = "intent://example.com/#Intent;scheme=https;package=com.android.chrome;end";
         }
         else{document.location.href = "https//example.com/";}
