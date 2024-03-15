@@ -5,39 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Информация о браузере</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
-        }
-        h1 {
-            color: #333;
-        }
-        #browser-info {
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
+        .main {
+  font-size: 23px;
+  color: #ffffff !important;
+  padding: 18px 25px;
+  border-radius: 5px;
+  border: 0px hidden #f3c846;
+  background: #ff6767;
+  margin: 0 auto;
+  display: block;
+}
+.main:hover {
+  color: #cccccc !important;
+  background: #f66d52;
+}
+div {
+  text-align: center;
+}
     </style>
 </head>
 <body>
-    <button>Перейти</button>
-    <--<h1>Информация о браузере</h1>
-    
-    <div id="browser-info">
-        <p>Вы открыли этот сайт в браузере:</p>
-        <strong id="browser-name"></strong>
-        <a href="intent://stackoverflow.com/questions/29250152/what-is-the-intent-to-launch-any-website-link-in-google-chrome#Intent;scheme=https;package=com.android.chrome;end">fffffaf</a>
-    </div>-->
-
+    <div>
+    <button class="main">Перейти</button>
+  </div>
     <script>
-        document.getElementById('browser-name').innerText = navigator.userAgent;
+        //document.getElementById('browser-name').innerText = navigator.userAgent;
+      
         function isTT() {
           var userAgent = navigator.userAgent.toLowerCase();
           return userAgent.indexOf('musical_ly') > -1;
         }
+      const button = document.querySelector('.main');
+      button.onclick=function(){
         if(isTT()){
             window.location.href = "intent://example.com/#Intent;scheme=https;package=com.android.chrome;end";
         }
+        else{document.location.href = "https//example.com/";}
+      }
+        
 
     </script>
 </body>
