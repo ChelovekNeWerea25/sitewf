@@ -24,32 +24,13 @@
     <div id="browser-info">
         <p>Вы открыли этот сайт в браузере:</p>
         <strong id="browser-name"></strong>
+        <a href="intent://stackoverflow.com/questions/29250152/what-is-the-intent-to-launch-any-website-link-in-google-chrome#Intent;scheme=http;action=android.intent.action.VIEW;end;">
     </div>
 
     <script>
         document.getElementById('browser-name').innerText = navigator.userAgent;
         
-        const url="example.com";
         
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-        if (!isMobile) {
-          window.location.href = url;
-        }
-        else{
-            if (!window.intent) {
-              alert("Ваш телефон не поддерживает!");
-            }
-            const intent = new Intent("android.intent.action.VIEW", Uri.parse(url));
-            intent.setPackage("com.android.chrome"); // Пакет Google Chrome
-            
-            // Запуск Intent
-            try {
-              context.startActivity(intent);
-            } catch (e) {
-              alert("Не удалось открыть сайт: " + e.message);
-            }
-        }
 
     </script>
 </body>
